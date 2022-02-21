@@ -34,7 +34,7 @@ function harmonicMean (x, y) {
 addValuesToArr(data);
 var json = JSON.stringify(data);
 var fs = require('fs');
-fs.writeFile('stringified_data.json', json, err => {
+fs.writeFile('full_match_data.json', json, err => {
   if (err) {
     console.error(err);  
     return; 
