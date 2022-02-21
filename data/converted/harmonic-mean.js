@@ -3,8 +3,7 @@
 // It is not provided in the raw csv data, so we calculate it here
 
 function harmonicMean (x, y) {
-  const n = arguments.length;
-  console.log(n / ((1/x) + (1/y)));
+  return arguments.length / ((1/x) + (1/y));
 }
 
 const myArr = [
@@ -60,4 +59,12 @@ const myArr = [
   }
 ]
 
-harmonicMean(myArr[0]["spi1"], myArr[0]["spi2"]);
+function addMatchQuality (arr) {
+  arr.forEach(match => {
+    const quality = harmonicMean(match["spi1"], match["spi2"]);
+    match["quality"] = quality;
+  })
+}
+
+addMatchQuality(myArr);
+console.log(myArr);
