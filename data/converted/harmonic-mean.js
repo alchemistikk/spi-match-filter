@@ -4,6 +4,7 @@ function addValuesToArr (arr) {
   arr.forEach(match => {
     addQuality(match);
     addImportance(match);
+    addMatchRating(match);
   })
 }
 
@@ -16,6 +17,10 @@ function addImportance (match) {
     (parseFloat(match["importance1"]) + 
     (parseFloat(match["importance2"]))) /
     2;
+}
+
+function addMatchRating (match) {
+  match["match_rating"] = (match["quality"] + match["importance"]) / 2;
 }
 
 // https://en.wikipedia.org/wiki/Harmonic_mean
