@@ -2,18 +2,21 @@ import logo from './logo.svg';
 import './App.css';
 import data from './match-data'
 
-function TableRow(props) {
-  return (
+function TableBody(props) {
+  const listItems = props.data.map(match =>
     <tr>
-    <td>{props.date}</td>
-    <td>{props.league}</td>
-    <td>{props.team1}</td>
-    <td>{props.team2}</td>
-    <td>{props.quality}</td>
-    <td>{props.importance}</td>
-    <td>{props.match_rating}</td>
+    <td>{match["date"]}</td>
+    <td>{match["league"]}</td>
+    <td>{match["team1"]}</td>
+    <td>{match["team2"]}</td>
+    <td>{match["quality"]}</td>
+    <td>{match["importance"]}</td>
+    <td>{match["match_rating"]}</td>
     </tr>
-  )
+  );
+  return (
+   <tbody>{listItems}</tbody>
+  );
 }
 
 function App() {
@@ -31,17 +34,7 @@ function App() {
             <th>Match Rating</th>
           </tr>
         </thead>
-        <tbody>
-          <TableRow 
-            date={data[0]["date"]} 
-            league={data[0]["league"]}
-            team1={data[0]["team1"]}
-            team2={data[0]["team2"]}
-            quality={data[0]["quality"]}
-            importance={data[0]["importance"]}
-            match_rating={data[0]["match_rating"]}
-          />
-        </tbody>
+        <TableBody data={data} />
       </table>
     </div>
   );
