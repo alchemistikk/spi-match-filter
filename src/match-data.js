@@ -19,10 +19,7 @@ function addQuality (match) {
 }
 
 function addImportance (match) {
-  match["importance"] = 
-    (parseFloat(match["importance1"]) + 
-    (parseFloat(match["importance2"]))) /
-    2;
+  match["importance"] = (+match["importance1"] + +match["importance2"]) / 2;
 }
 
 function addMatchRating (match) {
@@ -38,14 +35,14 @@ function harmonicMean (x, y) {
 }
 
 addValuesToArr(data);
-// var json = JSON.stringify(data);
+// // var json = JSON.stringify(data);
 // var fs = require('fs');
-// fs.writeFile('full_match_data.json', json, err => {
-//   if (err) {
-//     console.error(err);  
-//     return; 
-//   };
-//   console.log("File has been created");
-// });
+// // fs.writeFile('full_match_data.json', json, err => {
+// //   if (err) {
+// //     console.error(err);  
+// //     return; 
+// //   };
+// //   console.log("File has been created");
+// // });
 
 export default data;
