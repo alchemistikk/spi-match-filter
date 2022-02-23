@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import onlyFutureMatches from './get-future-matches';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App matches={onlyFutureMatches} />
   </React.StrictMode>,
   document.getElementById('root')
 );
