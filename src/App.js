@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import data from './match-data'
+import onlyFutureMatches from './get-future-matches';
 
 function TableBody(props) {
   const listItems = props.data.map(match =>
@@ -34,7 +34,7 @@ function App() {
             <th>Match Rating</th>
           </tr>
         </thead>
-        <TableBody data={data} />
+        <TableBody data={onlyFutureMatches} />
       </table>
     </div>
   );
