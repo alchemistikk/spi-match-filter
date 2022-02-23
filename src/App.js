@@ -9,9 +9,9 @@ function TableBody(props) {
     <td>{match["league"]}</td>
     <td>{match["team1"]}</td>
     <td>{match["team2"]}</td>
-    <td>{match["quality"]}</td>
-    <td>{match["importance"]}</td>
-    <td>{match["match_rating"]}</td>
+    <td>{Math.round(match["quality"])}</td>
+    <td>{Math.round(match["importance"])}</td>
+    <td>{Math.round(match["match_rating"])}</td>
     </tr>
   );
   return (
