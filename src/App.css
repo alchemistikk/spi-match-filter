@@ -1,12 +1,48 @@
 body {
-  width: 80%;
+  width: 60%;
   margin: auto;
+  background-color: #4c8527;
   }
+
+.App {
+  background-color: white;
+  padding: 1px 20px 20px 20px;
+}
 
 .inputs {
   text-align: center;
+  margin: 40px;
+}
+
+.inputs label {
+  padding-right: 20px;
+}
+
+table {
+  font-size: 12px;
 }
 
 td {
-  padding: 20px;
+  padding: 10px;
+}
+
+th {
+  padding: 10px;
+  text-align: left;
+}
+
+thead th:nth-child(1) {
+  width: 20%;
+}
+
+thead th:nth-child(2) {
+  width: 30%;
+}
+
+thead th:nth-child(3) {
+  width: 15%;
+}
+
+thead th:nth-child(4) {
+  width: 25%;
 }
