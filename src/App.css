@@ -1,12 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Hubballi&display=swap');
+
 body {
   width: 60%;
   margin: auto;
   background-color: #4c8527;
-  }
+  font-family: 'Hubballi', cursive;
+}
 
 .App {
   background-color: white;
   padding: 1px 20px 20px 20px;
+  font-size: 18px;
 }
 
 .inputs {
@@ -19,7 +23,7 @@ body {
 }
 
 table {
-  font-size: 12px;
+  font-size: 18px;
 }
 
 td {
@@ -32,11 +36,11 @@ th {
 }
 
 thead th:nth-child(1) {
-  width: 20%;
+  width: 10%;
 }
 
 thead th:nth-child(2) {
-  width: 30%;
+  width: 20%;
 }
 
 thead th:nth-child(3) {
@@ -45,4 +49,19 @@ thead th:nth-child(3) {
 
 thead th:nth-child(4) {
   width: 25%;
+}
+
+thead th:nth-child(5),
+tr td:nth-child(5) {
+  text-align: center;
+}
+
+thead th:nth-child(6),
+tr td:nth-child(6) {
+  text-align: center;
+}
+
+thead th:nth-child(7),
+tr td:nth-child(7) {
+  text-align: center;
 }
