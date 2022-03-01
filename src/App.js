@@ -41,7 +41,10 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <input type="number" onInput={this.handleInput}></input>
+        <div className="inputs">
+        <label>Match Rating</label>
+        <input type="range" min="0" max="100" onInput={this.handleInput}></input>
+        </div>
         <table>
           <thead>
             <tr>

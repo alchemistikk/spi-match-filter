@@ -3,6 +3,10 @@ body {
   margin: auto;
   }
 
+.inputs {
+  text-align: center;
+}
+
 td {
   padding: 20px;
 }
