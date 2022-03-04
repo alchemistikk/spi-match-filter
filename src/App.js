@@ -24,18 +24,31 @@ class App extends React.Component {
     super(props);
     this.state = {
       table: this.props.matches,
+      match_rating: 0,
+      quality: 0, 
     };
     this.handleInput = this.handleInput.bind(this);
   }
 
-  // Multiple controlled input elements use event.target.name
   handleInput(event) {
     let threshold = [];
-    this.props.matches.forEach(match => {
-      if (match["match_rating"] > event.target.value) {
-        threshold.push(match);
+    if (event.target.name === "match_rating" ) {
+      this.props.matches.forEach(match => {
+        if (match["match_rating"] > event.target.value &&
+         match["quality"] > this.state.quality) {
+          threshold.push(match);
+        }
+      });
+    this.setState({match_rating: event.target.value});
+    } else if (event.target.name === "quality") {
+        this.props.matches.forEach(match => {
+          if (match["quality"] > event.target.value &&
+           match["match_rating"] > this.state.match_rating) {
+            threshold.push(match);
+          }
+        });
+        this.setState({quality: event.target.value});
       }
-    });
     this.setState({table: threshold});
   }
 
@@ -44,7 +57,9 @@ class App extends React.Component {
       <div className="App">
         <div className="inputs">
         <label>Match Rating</label>
-        <input type="range" min="0" max="100" onInput={this.handleInput}></input>
+        <input name="match_rating" type="range" min="0" max="100" onInput={this.handleInput}></input>
+        <label>Quality</label>
+        <input name="quality" type="range" min="0" max="100" onInput={this.handleInput}></input>
         </div>
         <table>
           <thead>
