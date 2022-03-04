@@ -31,34 +31,47 @@ class App extends React.Component {
     this.handleInput = this.handleInput.bind(this);
   }
 
+  //Write three individual methods and call them in the main handleInput method
+  handleQuality(event, threshold) {
+    this.props.matches.forEach(match => {
+      if (match["quality"] > event.target.value &&
+          match["match_rating"] > this.state.match_rating &&
+          match["importance"] > this.state.importance) {
+            threshold.push(match);
+      }
+    });
+  }   
+
+  handleImportance(event, threshold) {
+    this.props.matches.forEach(match => {
+      if (match["importance"] > event.target.value &&
+          match["match_rating"] > this.state.match_rating &&
+          match["quality"] > this.state.quality) {
+            threshold.push(match);
+      }
+    });
+  }
+
+  handleMatchRating(event, threshold) {
+    this.props.matches.forEach(match => {
+      if (match["match_rating"] > event.target.value &&
+          match["quality"] > this.state.quality &&
+          match["importance"] > this.state.importance) {
+            threshold.push(match);
+      }
+    });
+  }
+
   handleInput(event) {
     let threshold = [];
     if (event.target.name === "match_rating" ) {
-      this.props.matches.forEach(match => {
-        if (match["match_rating"] > event.target.value &&
-         match["quality"] > this.state.quality &&
-         match["importance"] > this.state.importance) {
-          threshold.push(match);
-        }
-      });
-    this.setState({match_rating: event.target.value});
+      this.handleMatchRating(event, threshold);
+      this.setState({match_rating: event.target.value});
     } else if (event.target.name === "quality") {
-        this.props.matches.forEach(match => {
-          if (match["quality"] > event.target.value &&
-           match["match_rating"] > this.state.match_rating &&
-           match["importance"] > this.state.importance) {
-            threshold.push(match);
-          }
-        });
+        this.handleQuality(event, threshold);
         this.setState({quality: event.target.value});
-      } else if (event.target.name === "importance") {
-        this.props.matches.forEach(match => {
-          if (match["importance"] > event.target.value &&
-           match["match_rating"] > this.state.match_rating &&
-           match["quality"] > this.state.quality) {
-            threshold.push(match);
-          }
-        });
+    } else if (event.target.name === "importance") {
+        this.handleImportance(event, threshold);
         this.setState({importance: event.target.value});
       } 
     this.setState({table: threshold});
