@@ -25,7 +25,7 @@ class App extends React.Component {
     this.state = {
       table: this.props.matches,
       match_rating: 0,
-      quality: 0, 
+      quality: 0,
     };
     this.handleInput = this.handleInput.bind(this);
   }
@@ -56,10 +56,10 @@ class App extends React.Component {
     return (
       <div className="App">
         <div className="inputs">
-        <label>Match Rating</label>
-        <input name="match_rating" type="range" min="0" max="100" onInput={this.handleInput}></input>
-        <label>Quality</label>
-        <input name="quality" type="range" min="0" max="100" onInput={this.handleInput}></input>
+          <label>Quality</label>
+          <input name="quality" type="range" min="0" max="100" onInput={this.handleInput}></input>
+          <label>Match Rating</label>
+          <input name="match_rating" type="range" min="0" max="100" onInput={this.handleInput}></input>
         </div>
         <table>
           <thead>
