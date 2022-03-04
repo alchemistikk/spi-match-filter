@@ -28,6 +28,7 @@ class App extends React.Component {
       quality: 0,
       importance: 0,
       team: "",
+      league: "",
     };
     this.handleInput = this.handleInput.bind(this);
   }
@@ -37,6 +38,7 @@ class App extends React.Component {
       if (match["quality"] > event.target.value &&
           match["match_rating"] > this.state.match_rating &&
           match["importance"] > this.state.importance &&
+          match["league"].match(this.state.league) &&
           (match["team1"].match(this.state.team) ||
           match["team1"].match(this.state.team))) {
             threshold.push(match);
@@ -49,6 +51,7 @@ class App extends React.Component {
       if (match["importance"] > event.target.value &&
           match["match_rating"] > this.state.match_rating &&
           match["quality"] > this.state.quality &&
+          match["league"].match(this.state.league) &&
           (match["team1"].match(this.state.team) ||
           match["team1"].match(this.state.team))) {
             threshold.push(match);
@@ -61,6 +64,7 @@ class App extends React.Component {
       if (match["match_rating"] > event.target.value &&
           match["quality"] > this.state.quality &&
           match["importance"] > this.state.importance &&
+          match["league"].match(this.state.league) &&
           (match["team1"].match(this.state.team) ||
           match["team1"].match(this.state.team))) {
             threshold.push(match);
@@ -74,7 +78,21 @@ class App extends React.Component {
           match["team1"].match(event.target.value)) &&
           match["match_rating"] > this.state.match_rating &&
           match["quality"] > this.state.quality &&
-          match["importance"] > this.state.importance) {
+          match["importance"] > this.state.importance &&
+          match["league"].match(this.state.league)) {
+            threshold.push(match);
+      }
+    });
+  }
+
+  handleLeague(event, threshold) {
+    this.props.matches.forEach(match => {
+      if ((match["league"].match(event.target.value) &&
+          match["match_rating"] > this.state.match_rating &&
+          match["quality"] > this.state.quality &&
+          match["importance"] > this.state.importance) &&
+          (match["team1"].match(this.state.team) ||
+          match["team1"].match(this.state.team))) {
             threshold.push(match);
       }
     });
@@ -94,7 +112,10 @@ class App extends React.Component {
     } else if (event.target.name === "team") {
         this.handleTeam(event, threshold);
         this.setState({team: event.target.value});
-    } 
+    } else if (event.target.name === "league") {
+      this.handleLeague(event, threshold);
+      this.setState({league: event.target.value});
+    }
     this.setState({table: threshold});
   }
 
@@ -102,6 +123,8 @@ class App extends React.Component {
     return (
       <div className="App">
         <div className="inputs">
+          <label>League</label>
+          <input name="league" type="text" onInput={this.handleInput}></input>
           <label>Team</label>
           <input name="team" type="text" onInput={this.handleInput}></input>
           <label>Quality</label>
