@@ -26,6 +26,7 @@ class App extends React.Component {
       table: this.props.matches,
       match_rating: 0,
       quality: 0,
+      importance: 0,
     };
     this.handleInput = this.handleInput.bind(this);
   }
@@ -35,7 +36,8 @@ class App extends React.Component {
     if (event.target.name === "match_rating" ) {
       this.props.matches.forEach(match => {
         if (match["match_rating"] > event.target.value &&
-         match["quality"] > this.state.quality) {
+         match["quality"] > this.state.quality &&
+         match["importance"] > this.state.importance) {
           threshold.push(match);
         }
       });
@@ -43,12 +45,22 @@ class App extends React.Component {
     } else if (event.target.name === "quality") {
         this.props.matches.forEach(match => {
           if (match["quality"] > event.target.value &&
-           match["match_rating"] > this.state.match_rating) {
+           match["match_rating"] > this.state.match_rating &&
+           match["importance"] > this.state.importance) {
             threshold.push(match);
           }
         });
         this.setState({quality: event.target.value});
-      }
+      } else if (event.target.name === "importance") {
+        this.props.matches.forEach(match => {
+          if (match["importance"] > event.target.value &&
+           match["match_rating"] > this.state.match_rating &&
+           match["quality"] > this.state.quality) {
+            threshold.push(match);
+          }
+        });
+        this.setState({importance: event.target.value});
+      } 
     this.setState({table: threshold});
   }
 
@@ -58,6 +70,8 @@ class App extends React.Component {
         <div className="inputs">
           <label>Quality</label>
           <input name="quality" type="range" min="0" max="100" onInput={this.handleInput}></input>
+          <label>Importance</label>
+          <input name="importance" type="range" min="0" max="100" onInput={this.handleInput}></input>
           <label>Match Rating</label>
           <input name="match_rating" type="range" min="0" max="100" onInput={this.handleInput}></input>
         </div>
