@@ -67,3 +67,15 @@ thead th:nth-child(7),
 tr td:nth-child(7) {
   text-align: center;
 }
+
+.great {
+  color: #438603;
+}
+
+.good {
+  color: #C25700;
+}
+
+.poor {
+  color: #A40000;
+}

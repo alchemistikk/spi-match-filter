@@ -9,11 +9,18 @@ function TableBody(props) {
     <td>{match["league"]}</td>
     <td>{match["team1"]}</td>
     <td>{match["team2"]}</td>
-    <td>{Math.round(match["quality"])}</td>
-    <td>{Math.round(match["importance"])}</td>
-    <td>{Math.round(match["match_rating"])}</td>
+    <td className={match["quality"] > 66 ? "great" : match["quality"] > 33 ? "good" : "poor"}>
+      {Math.round(match["quality"])}
+    </td>
+    <td className={match["importance"] > 66 ? "great" : match["importance"] > 33 ? "good" : "poor"}>
+      {Math.round(match["importance"])}
+    </td>
+    <td className={match["match_rating"] > 66 ? "great" : match["match_rating"] > 33 ? "good" : "poor"}>
+      {Math.round(match["match_rating"])}
+    </td>
     </tr>
   );
+
   return (
    <tbody>{listItems}</tbody>
   );
