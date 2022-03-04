@@ -4,7 +4,7 @@ import React from 'react';
 
 function TableBody(props) {
   const listItems = props.data.map(match =>
-    <tr>
+    <tr key={props.data.indexOf(match)}>
     <td>{match["date"]}</td>
     <td>{match["league"]}</td>
     <td>{match["team1"]}</td>
