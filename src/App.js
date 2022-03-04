@@ -28,6 +28,7 @@ class App extends React.Component {
     this.handleInput = this.handleInput.bind(this);
   }
 
+  // Multiple controlled input elements use event.target.name
   handleInput(event) {
     let threshold = [];
     this.props.matches.forEach(match => {
@@ -50,8 +51,8 @@ class App extends React.Component {
             <tr>
               <th>Date</th>
               <th>League</th>
-              <th>Team 1</th>
-              <th>Team 2</th>
+              <th>Home</th>
+              <th>Away</th>
               <th>Quality</th>
               <th>Importance</th>
               <th>Match Rating</th>

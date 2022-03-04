@@ -18,8 +18,15 @@ function addQuality (match) {
   match["quality"] = harmonicMean(match["spi1"], match["spi2"]);
 }
 
+// If each team both teams have an importance rating for the match
+// then average the two ratings. If not, return an overall importance
+// rating of 50. Eventually I will build a more complicated way of 
+// assigning the overall importance to a match
 function addImportance (match) {
   match["importance"] = (+match["importance1"] + +match["importance2"]) / 2;
+  if (match["importance"] === 0) {
+    match["importance"] = 50; 
+  }
 }
 
 function addMatchRating (match) {
