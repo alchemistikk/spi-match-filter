@@ -6,6 +6,18 @@
 
 let data = require("./data/converted/spi_matches_latest.json");
 
+// I'm not currently interested in results from the Women's Leagues.
+// This may change in the future
+function removeWomensLeagues (data) {
+  let filtered = [];
+  data.forEach(match => {
+    if (!match["league"].match("Women")) {
+      filtered.push(match);
+    }
+  })
+  return filtered;
+}
+
 function addValuesToArr (arr) {
   arr.forEach(match => {
     addQuality(match);
@@ -41,7 +53,7 @@ function harmonicMean (x, y) {
   return arguments.length / ((1/x) + (1/y));
 }
 
-addValuesToArr(data);
+addValuesToArr(removeWomensLeagues(data));
 // // var json = JSON.stringify(data);
 // var fs = require('fs');
 // // fs.writeFile('full_match_data.json', json, err => {
