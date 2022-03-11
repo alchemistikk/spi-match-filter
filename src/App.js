@@ -35,7 +35,7 @@ class App extends React.Component {
       match_rating: 0,
       quality: 0,
       importance: 0,
-      team: "",
+      teams: [],
       league: "",
     };
     this.handleInput = this.handleInput.bind(this);
@@ -94,6 +94,7 @@ class App extends React.Component {
             threshold.push(match);
       }
     });
+    return teams;
   }
 
   handleLeague(event, threshold) {
@@ -114,8 +115,10 @@ class App extends React.Component {
     console.log(event);
     if (Array.isArray(event)) {
       console.log("YPIIEE");
-      this.handleTeam(event, threshold);
-      // this.setState({team: event[0]["label"]});
+      let teams = this.handleTeam(event, threshold);
+      console.log(teams);
+      this.setState({teams: teams});
+      console.log(this.state.teams) // State is not updated to contain full teams array, only previous one
       // There is a bug here. The table won't update it's team state currently
       // It will update the table but not the team. 
     } 
@@ -156,10 +159,10 @@ class App extends React.Component {
       everyMatchParticipant.push(match["team1"]);
       everyMatchParticipant.push(match["team2"]);
     });
-    let teams = [...new Set(everyMatchParticipant)];
+    let teams = [...new Set(everyMatchParticipant)].sort();
 
     const teamOptions = teams.map(team => {
-      return { label: team, value: team};
+      return { label: team, value: team };
     })
 
     return (
