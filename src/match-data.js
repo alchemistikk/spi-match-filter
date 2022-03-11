@@ -53,6 +53,7 @@ function harmonicMean (x, y) {
   return arguments.length / ((1/x) + (1/y));
 }
 
-addValuesToArr(removeWomensLeagues(data));
+addValuesToArr(data);
+let matchData = removeWomensLeagues(data);
 
-export default data;
+export default matchData;

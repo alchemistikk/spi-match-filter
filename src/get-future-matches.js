@@ -1,4 +1,4 @@
-import data from "./match-data";
+import matchData from "./match-data";
 
 let onlyFutureMatches = [];
 
@@ -13,6 +13,6 @@ function getFutureMatches (matches) {
   });
 }
 
-getFutureMatches(data);
+getFutureMatches(matchData);
 
 export default onlyFutureMatches;
