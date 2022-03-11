@@ -12,8 +12,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "curl https://projects.fivethirtyeight.com/soccer-api/club/spi_matches_latest.csv | csvtojson > ./src/data/converted/spi_matches_latest.json && react-scripts start",
+    "build": "curl https://projects.fivethirtyeight.com/soccer-api/club/spi_matches_latest.csv | csvtojson > ./src/data/converted/spi_matches_latest.json && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
