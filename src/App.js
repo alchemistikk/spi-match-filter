@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import React from 'react';
+import Select from 'react-select';
 
 function TableBody(props) {
   const listItems = props.data.map(match =>
@@ -80,9 +81,12 @@ class App extends React.Component {
   }
 
   handleTeam(event, threshold) {
+    let teams = event.map(team => {
+      return team["label"];
+    })
     this.props.matches.forEach(match => {
-      if ((match["team1"].match(event.target.value) ||
-          match["team2"].match(event.target.value)) &&
+      if ((typeof(event[0]) != "undefined") && 
+          teams.some(team => Object.values(match).includes(team)) &&
           match["match_rating"] > this.state.match_rating &&
           match["quality"] > this.state.quality &&
           match["importance"] > this.state.importance &&
@@ -107,33 +111,65 @@ class App extends React.Component {
 
   handleInput(event) {
     let threshold = [];
-    if (event.target.name === "match_rating" ) {
-      this.handleMatchRating(event, threshold);
-      this.setState({match_rating: event.target.value});
-    } else if (event.target.name === "quality") {
-        this.handleQuality(event, threshold);
-        this.setState({quality: event.target.value});
-    } else if (event.target.name === "importance") {
-        this.handleImportance(event, threshold);
-        this.setState({importance: event.target.value});
-    } else if (event.target.name === "team") {
-        this.handleTeam(event, threshold);
-        this.setState({team: event.target.value});
-    } else if (event.target.name === "league") {
-      this.handleLeague(event, threshold);
-      this.setState({league: event.target.value});
+    console.log(event);
+    if (Array.isArray(event)) {
+      console.log("YPIIEE");
+      this.handleTeam(event, threshold);
+      // this.setState({team: event[0]["label"]});
+      // There is a bug here. The table won't update it's team state currently
+      // It will update the table but not the team. 
+    } 
+    if (!Array.isArray(event)) {
+      if (event.target.name === "match_rating" ) {
+        this.handleMatchRating(event, threshold);
+        this.setState({match_rating: event.target.value});
+      } else if (event.target.name === "quality") {
+          this.handleQuality(event, threshold);
+          this.setState({quality: event.target.value});
+      } else if (event.target.name === "importance") {
+          this.handleImportance(event, threshold);
+          this.setState({importance: event.target.value});
+      } else if (event.target.name === "team") {
+          this.handleTeam(event, threshold);
+          this.setState({team: event.target.value});
+      } else if (event.target.name === "league") {
+        this.handleLeague(event, threshold);
+        this.setState({league: event.target.value});
+      }
     }
     this.setState({table: threshold});
   }
+    
 
   render() {
+    const aquaticCreatures = [
+      { label: 'Shark', value: 'Shark' },
+      { label: 'Dolphin', value: 'Dolphin' },
+      { label: 'Whale', value: 'Whale' },
+      { label: 'Octopus', value: 'Octopus' },
+      { label: 'Crab', value: 'Crab' },
+      { label: 'Lobster', value: 'Lobster' },
+    ];
+
+    let everyMatchParticipant = [];
+    this.props.matches.forEach(match => {
+      everyMatchParticipant.push(match["team1"]);
+      everyMatchParticipant.push(match["team2"]);
+    });
+    let teams = [...new Set(everyMatchParticipant)];
+
+    const teamOptions = teams.map(team => {
+      return { label: team, value: team};
+    })
+
     return (
       <div className="App">
         <div className="inputs">
           <label>League</label>
           <input name="league" type="text" onInput={this.handleInput}></input>
           <label>Team</label>
-          <input name="team" type="text" onInput={this.handleInput}></input>
+          {/* <input name="team" type="text" onInput={this.handleInput}></input> */}
+          <Select name="team" options={teamOptions} isMulti onChange={this.handleInput}/>
           <label>Quality</label>
           <input name="quality" type="range" min="0" max="100" onInput={this.handleInput}></input>
           <label>Importance</label>
