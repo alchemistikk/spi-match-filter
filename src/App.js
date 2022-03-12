@@ -47,8 +47,7 @@ class App extends React.Component {
           match["match_rating"] > this.state.match_rating &&
           match["importance"] > this.state.importance &&
           match["league"].match(this.state.league) &&
-          (match["team1"].match(this.state.team) ||
-          match["team2"].match(this.state.team))) {
+          this.state.teams.some(team => Object.values(match).includes(team))) {
             threshold.push(match);
       }
     });
@@ -60,8 +59,7 @@ class App extends React.Component {
           match["match_rating"] > this.state.match_rating &&
           match["quality"] > this.state.quality &&
           match["league"].match(this.state.league) &&
-          (match["team1"].match(this.state.team) ||
-          match["team2"].match(this.state.team))) {
+          this.state.teams.some(team => Object.values(match).includes(team))) {
             threshold.push(match);
       }
     });
@@ -69,14 +67,17 @@ class App extends React.Component {
 
   handleMatchRating(event, threshold) {
     this.props.matches.forEach(match => {
-      if (match["match_rating"] > event.target.value &&
+        if ((match["match_rating"] > event.target.value &&
           match["quality"] > this.state.quality &&
           match["importance"] > this.state.importance &&
-          match["league"].match(this.state.league) &&
-          (match["team1"].match(this.state.team) ||
-          match["team2"].match(this.state.team))) {
+          match["league"].match(this.state.league)) &&
+          // Here I'm testing trying to figure out how to render the full table
+          // when updating the match rating value when there is no team selected
+          // whatever code is here I can copy to the other handlers.
+          (this.state.teams.some(team => Object.values(match).includes(team)) ||
+           this.state.teams.length === 0)) {
             threshold.push(match);
-      }
+        }
     });
   }
 
@@ -103,8 +104,7 @@ class App extends React.Component {
           match["match_rating"] > this.state.match_rating &&
           match["quality"] > this.state.quality &&
           match["importance"] > this.state.importance) &&
-          (match["team1"].match(this.state.team) ||
-          match["team2"].match(this.state.team))) {
+          this.state.teams.some(team => Object.values(match).includes(team))) {
             threshold.push(match);
       }
     });
@@ -114,13 +114,8 @@ class App extends React.Component {
     let threshold = [];
     console.log(event);
     if (Array.isArray(event)) {
-      console.log("YPIIEE");
       let teams = this.handleTeam(event, threshold);
-      console.log(teams);
       this.setState({teams: teams});
-      console.log(this.state.teams) // State is not updated to contain full teams array, only previous one
-      // There is a bug here. The table won't update it's team state currently
-      // It will update the table but not the team. 
     } 
     if (!Array.isArray(event)) {
       if (event.target.name === "match_rating" ) {
@@ -140,28 +135,21 @@ class App extends React.Component {
         this.setState({league: event.target.value});
       }
     }
-    this.setState({table: threshold});
+    console.log(this.state.teams.length);
+    this.setState({table:threshold});
   }
     
 
   render() {
-    const aquaticCreatures = [
-      { label: 'Shark', value: 'Shark' },
-      { label: 'Dolphin', value: 'Dolphin' },
-      { label: 'Whale', value: 'Whale' },
-      { label: 'Octopus', value: 'Octopus' },
-      { label: 'Crab', value: 'Crab' },
-      { label: 'Lobster', value: 'Lobster' },
-    ];
 
     let everyMatchParticipant = [];
     this.props.matches.forEach(match => {
       everyMatchParticipant.push(match["team1"]);
       everyMatchParticipant.push(match["team2"]);
     });
-    let teams = [...new Set(everyMatchParticipant)].sort();
+    let teams = [...new Set(everyMatchParticipant)];
 
-    const teamOptions = teams.map(team => {
+    const teamOptions = teams.sort().map(team => {
       return { label: team, value: team };
     })
 
