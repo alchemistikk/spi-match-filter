@@ -14,6 +14,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "curl https://projects.fivethirtyeight.com/soccer-api/club/spi_matches_latest.csv | csvtojson > ./src/data/converted/spi_matches_latest.json && react-scripts start",
     "build": "curl https://projects.fivethirtyeight.com/soccer-api/club/spi_matches_latest.csv | csvtojson > ./src/data/converted/spi_matches_latest.json && react-scripts build",
     "test": "react-scripts test",
@@ -36,5 +38,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "homepage": "https://alchemistikk.github.io/spi-match-filter"
 }
