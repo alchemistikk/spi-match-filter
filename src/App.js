@@ -130,6 +130,8 @@ class App extends React.Component {
     return (
       <div>
         <h1>Soccer Power Index Match Filter</h1>
+        <p>Filter upcoming league soccer matches by quality, importance, and rating.</p>
+        <p>Optionally search for your favorite teams and leagues.</p>
         <div className="App">
           <div className="inputs">
             <label>League</label>
