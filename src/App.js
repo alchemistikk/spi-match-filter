@@ -128,36 +128,39 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <div className="inputs">
-          <label>League</label>
-          <input name="league" type="text" onInput={this.handleInput}></input>
-          <label>Team</label>
-          <input name="team" type="text" onInput={this.handleInput}></input>
-          <label>Quality</label>
-          <input name="quality" type="range" min="0" max="100" onInput={this.handleInput}></input>
-          <label>Importance</label>
-          <input name="importance" type="range" min="0" max="100" onInput={this.handleInput}></input>
-          <label>Match Rating</label>
-          <input name="match_rating" type="range" min="0" max="100" onInput={this.handleInput}></input>
+      <div>
+        <h1>Soccer Power Index Match Filter</h1>
+        <div className="App">
+          <div className="inputs">
+            <label>League</label>
+            <input name="league" type="text" onInput={this.handleInput}></input>
+            <label>Team</label>
+            <input name="team" type="text" onInput={this.handleInput}></input>
+            <label>Quality</label>
+            <input name="quality" type="range" min="0" max="100" onInput={this.handleInput}></input>
+            <label>Importance</label>
+            <input name="importance" type="range" min="0" max="100" onInput={this.handleInput}></input>
+            <label>Match Rating</label>
+            <input name="match_rating" type="range" min="0" max="100" onInput={this.handleInput}></input>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>League</th>
+                <th>Home</th>
+                <th>Away</th>
+                <th>Quality</th>
+                <th>Importance</th>
+                <th>Match Rating</th>
+              </tr>
+            </thead>
+            <TableBody data={this.state.table} />
+          </table>
         </div>
-        <table>
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>League</th>
-              <th>Home</th>
-              <th>Away</th>
-              <th>Quality</th>
-              <th>Importance</th>
-              <th>Match Rating</th>
-            </tr>
-          </thead>
-          <TableBody data={this.state.table} />
-        </table>
       </div>
-    );
-  }
+      );
+    }
 }
 
 export default App;

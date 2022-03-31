@@ -7,6 +7,10 @@ body {
   font-family: 'Hubballi', cursive;
 }
 
+h1 {
+  text-align: center;
+}
+
 .App {
   background-color: white;
   padding: 1px 20px 20px 20px;
