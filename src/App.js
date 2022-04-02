@@ -131,7 +131,8 @@ class App extends React.Component {
       <div>
         <h1>Soccer Power Index Match Filter</h1>
         <p>Filter upcoming league soccer matches by quality, importance, and rating.</p>
-        <p>Optionally search for your favorite teams and leagues.</p>
+        <p>Optionally search for teams and leagues.</p>
+        <p>Most data come from fivethirtyeight.com</p>
         <div className="App">
           <div className="inputs">
             <label>League</label>
