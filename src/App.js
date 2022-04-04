@@ -132,7 +132,7 @@ class App extends React.Component {
         <h1>Soccer Power Index Match Filter</h1>
         <p>Filter upcoming league soccer matches by quality, importance, and rating.</p>
         <p>Optionally search for teams and leagues.</p>
-        <p>Raw data from fivethirtyeight.com. Calculated data programmed by me.</p>
+        <p>Raw data from <a href="https://data.fivethirtyeight.com/#soccer-spi">fivethirtyeight.com</a>. Calculated data programmed by me.</p>
         <div className="App">
           <div className="inputs">
             <label>League</label>
