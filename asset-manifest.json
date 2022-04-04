@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/spi-match-filter/static/css/main.a30530be.css",
-    "main.js": "/spi-match-filter/static/js/main.c624ab7d.js",
+    "main.css": "/spi-match-filter/static/css/main.204994b1.css",
+    "main.js": "/spi-match-filter/static/js/main.1cca51cc.js",
     "static/js/787.1943ff3f.chunk.js": "/spi-match-filter/static/js/787.1943ff3f.chunk.js",
     "static/media/logo.svg": "/spi-match-filter/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/spi-match-filter/index.html",
-    "main.a30530be.css.map": "/spi-match-filter/static/css/main.a30530be.css.map",
-    "main.c624ab7d.js.map": "/spi-match-filter/static/js/main.c624ab7d.js.map",
+    "main.204994b1.css.map": "/spi-match-filter/static/css/main.204994b1.css.map",
+    "main.1cca51cc.js.map": "/spi-match-filter/static/js/main.1cca51cc.js.map",
     "787.1943ff3f.chunk.js.map": "/spi-match-filter/static/js/787.1943ff3f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a30530be.css",
-    "static/js/main.c624ab7d.js"
+    "static/css/main.204994b1.css",
+    "static/js/main.1cca51cc.js"
   ]
 }
