@@ -133,6 +133,7 @@ class App extends React.Component {
         <p>Filter upcoming league soccer matches by quality, importance, and rating.</p>
         <p>Optionally search for teams and leagues.</p>
         <p>Raw data from <a href="https://data.fivethirtyeight.com/#soccer-spi">fivethirtyeight.com</a>. Calculated data programmed by me.</p>
+        <p>*Importance rating is sometimes not calculated until a week or so before the match. Until then a value of 50 is assigned.</p>
         <div className="App">
           <div className="inputs">
             <label>League</label>
