@@ -30,7 +30,10 @@ p {
 }
 
 .inputs label {
+  font-size: 20px;
   padding-right: 20px;
+  margin-top: 10px;
+  margin-bottom: 5px;
 }
 
 table {
