@@ -34,6 +34,11 @@ p {
   margin-bottom: 5px;
 }
 
+input[type="text"] {
+  padding: 5px;
+  font-size: 20px;
+}
+
 table {
   font-size: 18px;
 }
