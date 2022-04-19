@@ -136,9 +136,9 @@ class App extends React.Component {
         <div className="App">
           <div className="inputs">
             <label>League</label>
-            <input name="league" type="text" onInput={this.handleInput}></input>
+            <input name="league" type="search" onInput={this.handleInput}></input>
             <label>Team</label>
-            <input name="team" type="text" onInput={this.handleInput}></input>
+            <input name="team" type="search" onInput={this.handleInput}></input>
             <label>Quality</label>
             <input name="quality" type="range" min="0" max="100" onInput={this.handleInput}></input>
             <label>Importance</label>

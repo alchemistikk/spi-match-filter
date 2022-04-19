@@ -131,7 +131,7 @@ input[type=range]:focus::-ms-fill-upper {
 
 /* Above is where the styles from http://danielstern.ca/range.css/?ref=css-tricks#/ end */
 
-input[type="text"] {
+input[type="search"] {
   padding: 5px;
   font-size: 20px;
 }
