@@ -1,6 +1,6 @@
 
 body {
-  width: 60%;
+  width: 70%;
   margin: auto;
   font-family: Courier;
 }
@@ -25,6 +25,8 @@ p {
   flex-direction: column;
   text-align: center;
   margin: 40px;
+  width: 50%;
+  margin: 0 auto;
 }
 
 .inputs label {
