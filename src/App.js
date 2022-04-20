@@ -1,5 +1,12 @@
 import './App.css';
 import React from 'react';
+import onlyFutureMatches from './get-future-matches';
+
+function BestGames(props) {
+  return (
+    <p>Hello</p>
+  )
+}
 
 function TableBody(props) {
   const listItems = props.data.map(match =>
@@ -128,23 +135,26 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>Soccer Power Index Match Filter</h1>
-        <p>Filter upcoming league soccer matches by quality, importance, and rating.</p>
-        <p>Optionally search for teams and leagues.</p>
-        <p>Raw data from <a href="https://data.fivethirtyeight.com/#soccer-spi">fivethirtyeight.com</a>. Calculated data programmed by me.</p>
-        <p>*Importance rating is sometimes not calculated until a week or so before the match. Until then a value of 50 is assigned.</p>
         <div className="App">
-          <div className="inputs">
-            <label>League</label>
-            <input name="league" type="search" onInput={this.handleInput}></input>
-            <label>Team</label>
-            <input name="team" type="search" onInput={this.handleInput}></input>
-            <label>Quality</label>
-            <input name="quality" type="range" min="0" max="100" onInput={this.handleInput}></input>
-            <label>Importance</label>
-            <input name="importance" type="range" min="0" max="100" onInput={this.handleInput}></input>
-            <label>Match Rating</label>
-            <input name="match_rating" type="range" min="0" max="100" onInput={this.handleInput}></input>
+          <div className="nonTable">
+            <h1>Soccer Power Index Match Filter</h1>
+            <div className="inputs">
+              <label>League</label>
+              <input name="league" type="search" onInput={this.handleInput}></input>
+              <label>Team</label>
+              <input name="team" type="search" onInput={this.handleInput}></input>
+              <label>Quality</label>
+              <input name="quality" type="range" min="0" max="100" onInput={this.handleInput}></input>
+              <label>Importance</label>
+              <input name="importance" type="range" min="0" max="100" onInput={this.handleInput}></input>
+              <label>Match Rating</label>
+              <input name="match_rating" type="range" min="0" max="100" onInput={this.handleInput}></input>
+            </div>
+            <p>Filter upcoming league soccer matches by quality, importance, and rating.</p>
+            <p>Optionally search for teams and leagues.</p>
+            <p>Raw data from <a href="https://data.fivethirtyeight.com/#soccer-spi">fivethirtyeight.com</a>. Calculated data programmed by me.</p>
+            <p>*Importance rating is sometimes not calculated until a week or so before the match. Until then a value of 50 is assigned.</p>
+            <BestGames data={onlyFutureMatches} />
           </div>
           <table>
             <thead>

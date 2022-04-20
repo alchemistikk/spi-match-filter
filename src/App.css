@@ -1,6 +1,6 @@
 
 body {
-  width: 70%;
+  width: 90%;
   margin: auto;
   font-family: Courier;
 }
@@ -10,14 +10,22 @@ h1 {
 }
 
 p {
-  font-size: 20px;
-  text-align: center;
+  font-size: 16px;
+  /* text-align: center; */
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 16px;
 }
 
 .App {
   background-color: white;
   padding: 1px 20px 20px 20px;
   font-size: 18px;
+  display: flex;
+}
+
+.nonTable {
+  width: 30%;
 }
 
 .inputs {
@@ -25,7 +33,7 @@ p {
   flex-direction: column;
   text-align: center;
   margin: 40px;
-  width: 50%;
+  width: 80%;
   margin: 0 auto;
 }
 
@@ -139,6 +147,7 @@ input[type="search"] {
 }
 
 table {
+  width: 80%;
   font-size: 18px;
 }
 
