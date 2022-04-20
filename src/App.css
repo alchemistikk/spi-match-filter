@@ -7,6 +7,8 @@ body {
 
 h1 {
   text-align: center;
+  margin: 0 auto;
+  width: 90%;
 }
 
 p {
@@ -19,7 +21,7 @@ p {
 
 .App {
   background-color: white;
-  padding: 1px 20px 20px 20px;
+  padding: 20px 20px 20px 20px;
   font-size: 18px;
   display: flex;
 }
@@ -146,9 +148,18 @@ input[type="search"] {
   font-size: 20px;
 }
 
+.nonInput {
+  margin-top: 20px;
+}
+
+h2 {
+  text-align: center;
+}
+
 table {
   width: 80%;
   font-size: 18px;
+  background-color: #eee;
 }
 
 td {
@@ -157,6 +168,7 @@ td {
 
 th {
   padding: 10px;
+  padding-top: 0;
   text-align: left;
 }
 
@@ -193,12 +205,15 @@ tr td:nth-child(7) {
 
 .great {
   color: #438603;
+  font-weight: bold;
 }
 
 .good {
   color: #C25700;
+  font-weight: normal;
 }
 
 .poor {
   color: #A40000;
+  font-weight: lighter;
 }

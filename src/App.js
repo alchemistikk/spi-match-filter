@@ -1,10 +1,21 @@
 import './App.css';
 import React from 'react';
-import onlyFutureMatches from './get-future-matches';
+import bestThreeMatches from './best-matches'
 
 function BestGames(props) {
+  const listItems = props.data.map(match =>
+    <div>
+      <p>{match["team1"]}</p>
+      <p>{match["team2"]}</p>
+      <p>{match["date"]}</p>
+    </div>
+    )
+    
   return (
-    <p>Hello</p>
+    <div>
+      <h2>Best Upcoming Matches</h2>
+      <p>{listItems}</p>
+    </div>
   )
 }
 
@@ -150,11 +161,13 @@ class App extends React.Component {
               <label>Match Rating</label>
               <input name="match_rating" type="range" min="0" max="100" onInput={this.handleInput}></input>
             </div>
+            <div className="nonInput">
             <p>Filter upcoming league soccer matches by quality, importance, and rating.</p>
             <p>Optionally search for teams and leagues.</p>
             <p>Raw data from <a href="https://data.fivethirtyeight.com/#soccer-spi">fivethirtyeight.com</a>. Calculated data programmed by me.</p>
             <p>*Importance rating is sometimes not calculated until a week or so before the match. Until then a value of 50 is assigned.</p>
-            <BestGames data={onlyFutureMatches} />
+            <BestGames data={bestThreeMatches} />
+            </div>
           </div>
           <table>
             <thead>
