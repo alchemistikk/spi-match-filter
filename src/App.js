@@ -10,7 +10,7 @@ function BestGames(props) {
       <p>{match["date"]}</p>
     </div>
     )
-    
+
   return (
     <div>
       <h2>Best Upcoming Matches</h2>
@@ -68,7 +68,7 @@ class App extends React.Component {
             threshold.push(match);
       }
     });
-  }   
+  }
 
   handleImportance(event, threshold) {
     this.props.matches.forEach(match => {
@@ -185,8 +185,8 @@ class App extends React.Component {
           </table>
         </div>
       </div>
-      );
-    }
+    );
+  }
 }
 
 export default App;

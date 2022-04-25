@@ -7,4 +7,3 @@ bestMatches.sort((a, b) => a["date"] - b["date"]);
 let bestThreeMatches = bestMatches.slice(0,3);
 
 export default bestThreeMatches;
-
