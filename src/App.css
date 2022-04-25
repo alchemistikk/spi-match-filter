@@ -1,20 +1,20 @@
-
 body {
-  width: 90%;
   margin: auto;
+  margin-left: 50px;
+  margin-right: 50px;
   font-family: Courier;
 }
 
 h1 {
   text-align: center;
   margin: 0 auto;
-  width: 90%;
+  max-width: 90%;
 }
 
 p {
   font-size: 16px;
   /* text-align: center; */
-  width: 80%;
+  max-width: 80%;
   margin: 0 auto;
   margin-bottom: 16px;
 }
@@ -27,7 +27,17 @@ p {
 }
 
 .nonTable {
-  width: 30%;
+  max-width: 30%;
+}
+
+@media (max-width: 1200px) {
+  .App {
+    flex-direction: column;
+  }
+
+  .nonTable {
+    max-width: 100%;
+  }
 }
 
 .inputs {
@@ -35,7 +45,7 @@ p {
   flex-direction: column;
   text-align: center;
   margin: 40px;
-  width: 80%;
+  max-width: 80%;
   margin: 0 auto;
 }
 
@@ -157,7 +167,7 @@ h2 {
 }
 
 table {
-  width: 80%;
+  max-width: 80%;
   font-size: 18px;
   background-color: #eee;
 }
@@ -173,19 +183,19 @@ th {
 }
 
 thead th:nth-child(1) {
-  width: 10%;
+  max-width: 10%;
 }
 
 thead th:nth-child(2) {
-  width: 20%;
+  max-width: 20%;
 }
 
 thead th:nth-child(3) {
-  width: 15%;
+  max-width: 15%;
 }
 
 thead th:nth-child(4) {
-  width: 25%;
+  max-width: 25%;
 }
 
 thead th:nth-child(5),
