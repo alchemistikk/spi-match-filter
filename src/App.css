@@ -166,10 +166,18 @@ h2 {
   text-align: center;
 }
 
+.bestUpcomingMatchTeams {
+  margin-bottom: 30px;
+}
+
 table {
   max-width: 80%;
   font-size: 18px;
-  background-color: #eee;
+}
+
+/* Zebra striping */
+tr:nth-of-type(even) {
+  background: #eee;
 }
 
 td {

@@ -2,12 +2,15 @@ import './App.css';
 import React from 'react';
 import bestThreeMatches from './best-matches'
 
-function BestGames(props) {
+function BestUpcomingMatches(props) {
   const listItems = props.data.map(match =>
     <div>
-      <p>{match["team1"]}</p>
-      <p>{match["team2"]}</p>
-      <p>{match["date"]}</p>
+      <div>
+        <p>{match["date"]}</p>
+      </div>
+      <div className="bestUpcomingMatchTeams">
+        <p>{match["team1"] + " v " + match["team2"]}</p>
+      </div>
     </div>
     )
 
@@ -166,7 +169,7 @@ class App extends React.Component {
             <p>Optionally search for teams and leagues.</p>
             <p>Raw data from <a href="https://data.fivethirtyeight.com/#soccer-spi">fivethirtyeight.com</a>. Calculated data programmed by me.</p>
             <p>*Importance rating is sometimes not calculated until a week or so before the match. Until then a value of 50 is assigned.</p>
-            <BestGames data={bestThreeMatches} />
+            <BestUpcomingMatches data={bestThreeMatches} />
             </div>
           </div>
           <table>
