@@ -57,18 +57,18 @@ p {
 }
 
 /* The input[type=range] styles below are from http://danielstern.ca/range.css/?ref=css-tricks#/ */
-input[type=range] {
+input[type="range"] {
   width: 100%;
   margin: 19.35px 0;
   background-color: transparent;
   -webkit-appearance: none;
 }
 
-input[type=range]:focus {
+input[type="range"]:focus {
   outline: none;
 }
 
-input[type=range]::-webkit-slider-runnable-track {
+input[type="range"]::-webkit-slider-runnable-track {
   background: #205928;
   border: 3.1px solid #000000;
   width: 100%;
@@ -76,7 +76,7 @@ input[type=range]::-webkit-slider-runnable-track {
   cursor: pointer;
 }
 
-input[type=range]::-webkit-slider-thumb {
+input[type="range"]::-webkit-slider-thumb {
   margin-top: -22.45px;
   width: 50px;
   height: 50px;
@@ -87,11 +87,11 @@ input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
 }
 
-input[type=range]:focus::-webkit-slider-runnable-track {
+input[type="range"]:focus::-webkit-slider-runnable-track {
   background: #276c30;
 }
 
-input[type=range]::-moz-range-track {
+input[type="range"]::-moz-range-track {
   background: #205928;
   border: 3.1px solid #000000;
   width: 100%;
@@ -99,7 +99,7 @@ input[type=range]::-moz-range-track {
   cursor: pointer;
 }
 
-input[type=range]::-moz-range-thumb {
+input[type="range"]::-moz-range-thumb {
   width: 40px;
   height: 40px;
   background: #ffffff;
@@ -108,7 +108,7 @@ input[type=range]::-moz-range-thumb {
   cursor: pointer;
 }
 
-input[type=range]::-ms-track {
+input[type="range"]::-ms-track {
   background: transparent;
   border-color: transparent;
   border-width: 34.35px 0;
@@ -118,17 +118,17 @@ input[type=range]::-ms-track {
   cursor: pointer;
 }
 
-input[type=range]::-ms-fill-lower {
+input[type="range"]::-ms-fill-lower {
   background: #194620;
   border: 3.1px solid #000000;
 }
 
-input[type=range]::-ms-fill-upper {
+input[type="range"]::-ms-fill-upper {
   background: #205928;
   border: 3.1px solid #000000;
 }
 
-input[type=range]::-ms-thumb {
+input[type="range"]::-ms-thumb {
   width: 50px;
   height: 50px;
   background: #ffffff;
@@ -138,15 +138,15 @@ input[type=range]::-ms-thumb {
   margin-top: 0px;
 }
 
-input[type=range]:focus::-ms-fill-lower {
+input[type="range"]:focus::-ms-fill-lower {
   background: #205928;
 }
-input[type=range]:focus::-ms-fill-upper {
+input[type="range"]:focus::-ms-fill-upper {
   background: #276c30;
 }
 
-@supports (-ms-ime-align:auto) {
-  input[type=range] {
+@supports (-ms-ime-align: auto) {
+  input[type="range"] {
     margin: 0;
   }
 }
@@ -187,7 +187,7 @@ td {
 th {
   padding: 10px;
   padding-top: 0;
-  text-align: left;
+  text-align: center;
 }
 
 thead th:nth-child(1) {
@@ -221,17 +221,18 @@ tr td:nth-child(7) {
   text-align: center;
 }
 
-.great {
-  color: #438603;
+.rate {
   font-weight: bold;
 }
 
+.great {
+  color: #438603;
+}
+
 .good {
-  color: #C25700;
-  font-weight: normal;
+  color: #c25700;
 }
 
 .poor {
-  color: #A40000;
-  font-weight: lighter;
+  color: #a40000;
 }
