@@ -80,8 +80,9 @@ input[type="range"]::-webkit-slider-thumb {
   margin-top: -22.45px;
   width: 50px;
   height: 50px;
-  background: #ffffff;
-  border: 3px solid #000000;
+  background-image: url(./soccer_ball.svg);
+  background-size: cover;
+  border: 1px solid #000000;
   border-radius: 50px;
   cursor: pointer;
   -webkit-appearance: none;
@@ -102,8 +103,9 @@ input[type="range"]::-moz-range-track {
 input[type="range"]::-moz-range-thumb {
   width: 40px;
   height: 40px;
-  background: #ffffff;
-  border: 3px solid #000000;
+  background-image: url(./soccer_ball.svg);
+  background-size: cover;
+  border: 1px solid #000000;
   border-radius: 50px;
   cursor: pointer;
 }
